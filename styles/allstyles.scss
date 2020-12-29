@@ -1,4 +1,12 @@
+// resets and sass specific stuff
+@import "./partials/resets";
 @import "./partials/variables";
 @import "./partials/functions";
+@import "./partials/mixins";
+
+// app styles
 @import "./partials/projects-tab";
+@import "./partials/projects";
+
+// app util classes
 @import "./partials/utils";

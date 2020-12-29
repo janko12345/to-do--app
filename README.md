@@ -5,5 +5,7 @@ this is the first project after 2 months of school, so it is kind of refresher o
 
 <hr>
 
+
 #### This app is still in progress
 
+## [demo](https://janko12345.github.io/to-do--app/)

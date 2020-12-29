@@ -1,0 +1,63 @@
+.projects {
+  overflow-y: auto;
+  height: 265px;
+  padding: 0 1.5rem;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: darken(getColor(bg-primary), 30%);
+    border-radius: 500px;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: rgb(50, 133, 201);
+    border-radius: 500px;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: darken(getColor(bg-primary), 30%) rgb(50, 133, 201);
+}
+
+.project {
+  padding: 0.5em;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(95, 240, 220);
+
+    .project-delete-btn {
+      display: inline-block;
+    }
+  }
+  &-delete-btn {
+    display: none;
+    background-color: red;
+    width: 16px;
+    height: 16px;
+    border-radius: 500px;
+    position: relative;
+    transition: transform 100ms linear;
+    margin-right: 3px;
+    &::before {
+      content: "";
+      position: absolute;
+      @include centerByPosition();
+      width: 8px;
+      height: 3px;
+      background-color: #fff;
+    }
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+  &-name {
+    font-size: 1.3rem;
+  }
+}
+
+.project-active {
+  background-color: rgb(67, 194, 177) !important;
+  .project-delete-btn {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,183 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: url(../assets/images/whale-bg.jpg) center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.projects-container {
+  background-color: #a3edfd;
+  position: fixed;
+  top: 15%;
+  border-radius: 0 50px 50px 0;
+  width: 450px;
+  opacity: 0.7;
+  height: 400px;
+  padding: 1rem 1.5rem;
+}
+
+.projects-container:hover {
+  opacity: 1;
+}
+
+.projects-title {
+  font-family: sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.3rem;
+}
+
+.add-project-btn {
+  margin-left: 1.5rem;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 1.2rem;
+  -webkit-transition: width 1s ease-in-out, border-radius 1s ease-in-out;
+  transition: width 1s ease-in-out, border-radius 1s ease-in-out;
+}
+
+.add-project-btn::after, .add-project-btn::before {
+  content: "";
+  background-color: #3f2;
+  width: 17px;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: opacity 200ms 800ms ease-in-out;
+  transition: opacity 200ms 800ms ease-in-out;
+}
+
+.add-project-btn::after {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.add-project-btn input {
+  background-color: transparent;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0 0.8em;
+  width: 270px;
+  border: none;
+  display: none;
+  height: 100%;
+}
+
+.add-project-btn input:focus {
+  outline: none;
+}
+
+.add-project-active {
+  width: 270px;
+  border-radius: 40px;
+}
+
+.add-project-active::before, .add-project-active::after {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  pointer-events: none;
+}
+
+.add-project-active input {
+  display: revert;
+}
+
+.projects-container-active {
+  opacity: 1;
+}
+
+.projects {
+  overflow-y: auto;
+  height: 265px;
+  padding: 0 1.5rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #0dd0fa #3285c9;
+}
+
+.projects::-webkit-scrollbar {
+  width: 10px;
+}
+
+.projects::-webkit-scrollbar-thumb {
+  background-color: #0dd0fa;
+  border-radius: 500px;
+}
+
+.projects::-webkit-scrollbar-track-piece {
+  background-color: #3285c9;
+  border-radius: 500px;
+}
+
+.project {
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+.project:hover {
+  cursor: pointer;
+  background-color: #5ff0dc;
+}
+
+.project:hover .project-delete-btn {
+  display: inline-block;
+}
+
+.project-delete-btn {
+  display: none;
+  background-color: red;
+  width: 16px;
+  height: 16px;
+  border-radius: 500px;
+  position: relative;
+  -webkit-transition: -webkit-transform 100ms linear;
+  transition: -webkit-transform 100ms linear;
+  transition: transform 100ms linear;
+  transition: transform 100ms linear, -webkit-transform 100ms linear;
+  margin-right: 3px;
+}
+
+.project-delete-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 8px;
+  height: 3px;
+  background-color: #fff;
+}
+
+.project-delete-btn:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.project-name {
+  font-size: 1.3rem;
+}
+
+.project-active {
+  background-color: #43c2b1 !important;
+}
+
+.project-active .project-delete-btn {
+  display: inline-block;
+}
+/*# sourceMappingURL=allstyles.css.map */
