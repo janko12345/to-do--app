@@ -180,4 +180,99 @@ body {
 .project-active .project-delete-btn {
   display: inline-block;
 }
+
+.todos-section {
+  position: fixed;
+  top: 10%;
+  right: 0%;
+}
+
+.menu-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.menu-btn {
+  cursor: pointer;
+  background-color: #fff;
+  width: 80px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-btn:hover:not(.menu-btn-active) {
+  -webkit-transform: scale(1.05) translateY(-2.5%);
+          transform: scale(1.05) translateY(-2.5%);
+}
+
+.menu-btn-active {
+  background-color: #a3edfd;
+  width: 90px;
+  height: 67px;
+  border-bottom: 2px solid black;
+}
+
+.todos-container {
+  background-color: #a3edfd;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-y: auto;
+  padding: 30px 61px 0;
+  height: 500px;
+  border-bottom-left-radius: 15px;
+  position: relative;
+}
+
+.add-todo {
+  cursor: pointer;
+  background-color: #5785db80;
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  height: 60px;
+  width: 45px;
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 100ms linear;
+  transition: -webkit-transform 100ms linear;
+  transition: transform 100ms linear;
+  transition: transform 100ms linear, -webkit-transform 100ms linear;
+}
+
+.add-todo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.add-todo::before, .add-todo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 3px;
+  width: 20px;
+  background-color: lime;
+}
+
+.add-todo::after {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          transform: translate(-50%, -50%) rotate(90deg);
+}
 /*# sourceMappingURL=allstyles.css.map */

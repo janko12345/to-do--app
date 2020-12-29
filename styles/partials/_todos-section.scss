@@ -1,0 +1,30 @@
+.todos-section {
+  position: fixed;
+  top: 10%;
+  right: 0%;
+}
+
+.menu-bar {
+  display: flex;
+  align-items: flex-end;
+}
+.menu-btn {
+  cursor: pointer;
+  background-color: #fff;
+  width: 80px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover:not(.menu-btn-active) {
+    transform: scale(1.05) translateY(-2.5%);
+  }
+  &-active {
+    background-color: getColor(bg-primary);
+    width: 90px;
+    height: 67px;
+    border-bottom: 2px solid black;
+  }
+}
