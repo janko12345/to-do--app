@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <section class="projects-container">
         <header>
             <h1 class="projects-title">Projects</h1>
@@ -85,12 +86,39 @@
             </div>
         </div>
     </section>
-
-    <section class="todos-section">
-        <div class="show-todos-toggler">
-            <div class="arrow">
-
+    
+    <div class="todo-form-modal">
+        <form class="todo-form">
+            
+            <div class="custom-select todo-form-projects">
+                <select class="todo-form-input" name="dont need" id="">
+                    <option value="nothing" disabled selected>Select project...</option>
+                    <option value="hmww">homeworks</option>
+                    <option value="school">school</option>
+                </select>
+                <span class="custom-select-dropdown-btn"></span>
             </div>
+            <div class="todo-form-body">
+                <input class="todo-form-input todo-form-title" type="text" placeholder="title">
+                <textarea class="todo-form-input todo-form-description" name="dont need name" id="" cols="30" rows="15" placeholder="description"></textarea>
+                <div class="todo-form-footer">
+                    <input class="todo-form-input todo-form-due-date" type="date">
+                    <div class="custom-select todo-form-priority">
+                        <select class="todo-form-input" name="dont need name" id="">
+                            <option value="dont need value">low</option>
+                            <option value="dont need value">medium</option>
+                            <option value="dont need value">high</option>
+                        </select>
+                        <span class="custom-select-dropdown-btn"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="todo-form-submit-btn">Done</button>
+        </form>
+    </div>
+    <section class="todos-section todos-section-hidden">
+        <div class="show-todos-toggler">
+            <img class="show-todos-toggler-arrow" src="assets/images/toggle-arrow.png" alt="arrow">
         </div>
         <nav class="menu-bar">
             <div class="menu-btn menu-btn-active"><img src="assets/images/incomplete-image.png" alt=""></div>
@@ -110,7 +138,7 @@
                     </div>
                     <div class="flex-col-between h-100">
                         <div>
-                            <h4 class="todo-title">Washing my car tu me kala pičuata</h4>
+                            <h4 class="todo-title">Washing my car tu me kala</h4>
                             <div class="todo-body">
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt beatae porro alias maxime
                                     laudantium, totam ducimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, odio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptatum odio quisquam repellendus unde. Recusandae fuga deleniti saepe doloremque sit!</p>
@@ -239,9 +267,12 @@
         </div>
     </div>
 
-    <script src="javascript/main.js"></script>
+    <script src="javascript/projects-section/main.js"></script>
+    <script src="javascript/todos-section/bodyHeight.js"></script>
+    <script src="javascript/todos-section/bodyScroll.js"></script>
+    <script src="javascript/todos-section/togglerArrow.js"></script>
+    <script src="javascript/todos-section/toggleForm.js"></script>
     
-
 </body>
 
 </html>

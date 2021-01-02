@@ -1,3 +1,12 @@
+/* 
+these variables are needed just in this scope to compute flex-basis and column-gap to fit the full width of flexbox with
+desired column gap and number of items in a row
+
+the size of flex-items will depend on how many we want them to be in a row and also on the size of desired gap
+*/
+$items-in-row: 3;
+$desired-gap: 25px;
 @import "./todos-section";
 @import "./todos-container";
 @import "./todo";
+@import "./section-toggler";

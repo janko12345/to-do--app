@@ -1,11 +1,12 @@
 .todo {
-  width: 250px;
+  flex-basis: calc(
+    100% / #{$items-in-row} - (#{$desired-gap} * #{$items-in-row - 1} / #{$items-in-row})
+  );
   padding: 1.6em 1.5em 1em;
-  background-color: #82c3ff;
+  background-color: getColor(todo-bg);
   position: relative;
   border-radius: 10px;
   height: 300px;
-  margin: 15px 11px;
   &-interactivity-buttons {
     display: flex;
     justify-content: space-between;

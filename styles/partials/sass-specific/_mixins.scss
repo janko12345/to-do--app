@@ -1,7 +1,15 @@
-@mixin centerByPosition() {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@mixin centerByPosition($vertical: "false", $horizontal: "false") {
+  @if ($vertical == "true") {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if ($horizontal == "true") {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @mixin flex($jc: stretch, $ai: stretch, $dir: row, $wrap: nowrap, $gap: 0) {
@@ -11,4 +19,11 @@
   flex-direction: $dir;
   flex-wrap: $wrap;
   gap: $gap;
+}
+
+@mixin flexCenter($dir: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
 }

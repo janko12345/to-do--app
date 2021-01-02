@@ -32,6 +32,79 @@ body {
   height: 100vh;
 }
 
+button {
+  cursor: pointer;
+  padding: 0.7em 1em;
+  border-radius: 0.5em;
+  border: none;
+}
+
+input,
+select,
+textarea {
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0.5em 0.7em;
+  background-color: #fff;
+  border: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  -webkit-box-shadow: 0 0 0px 2px black;
+          box-shadow: 0 0 0px 2px black;
+  outline: none;
+}
+
+input[type="date"] {
+  cursor: text;
+}
+
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-right: 1.2em;
+}
+
+.custom-select {
+  position: relative;
+}
+
+.custom-select-dropdown-btn {
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background-color: #ddd;
+  border-radius: 0 10px 10px 0;
+}
+
+.custom-select-dropdown-btn::before, .custom-select-dropdown-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  padding-bottom: 12px;
+  background-color: #000;
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 0% 50%);
+}
+
+.custom-select-dropdown-btn::before {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.custom-select-dropdown-btn::after {
+  -webkit-transform: translate(-50%, -30%) rotate(180deg);
+          transform: translate(-50%, -30%) rotate(180deg);
+}
+
 .projects-container {
   background-color: #a3edfd;
   position: fixed;
@@ -176,6 +249,11 @@ body {
   font-size: 1.3rem;
 }
 
+.project-info {
+  font-size: 0.9rem;
+  color: #555;
+}
+
 .project-active {
   background-color: #43c2b1 !important;
 }
@@ -184,11 +262,26 @@ body {
   display: inline-block;
 }
 
+/* 
+these variables are needed just in this scope to compute flex-basis and column-gap to fit the full width of flexbox with
+desired column gap and number of items in a row
+
+the size of flex-items will depend on how many we want them to be in a row and also on the size of desired gap
+*/
 .todos-section {
   position: fixed;
   top: 10%;
   right: 0%;
   width: 950px;
+  -webkit-transition: -webkit-transform 1000ms ease-in-out;
+  transition: -webkit-transform 1000ms ease-in-out;
+  transition: transform 1000ms ease-in-out;
+  transition: transform 1000ms ease-in-out, -webkit-transform 1000ms ease-in-out;
+}
+
+.todos-section-hidden {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .menu-bar {
@@ -247,6 +340,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  grid-gap: calc(25px / 1.4) 25px;
   overflow-y: auto;
   padding: 30px 60px 0;
   height: 500px;
@@ -300,13 +394,13 @@ body {
 }
 
 .todo {
-  width: 250px;
+  -ms-flex-preferred-size: calc( 100% / 3 - (25px * 2 / 3));
+      flex-basis: calc( 100% / 3 - (25px * 2 / 3));
   padding: 1.6em 1.5em 1em;
   background-color: #82c3ff;
   position: relative;
   border-radius: 10px;
   height: 300px;
-  margin: 15px 11px;
 }
 
 .todo-interactivity-buttons {
@@ -400,6 +494,181 @@ body {
   text-align: center;
   font-family: sans-serif;
   font-weight: bold;
+}
+
+.show-todos-toggler {
+  cursor: pointer;
+  position: absolute;
+  height: 150px;
+  width: 50px;
+  background-color: #0008;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+  -webkit-transition: -webkit-transform 500ms linear;
+  transition: -webkit-transform 500ms linear;
+  transition: transform 500ms linear;
+  transition: transform 500ms linear, -webkit-transform 500ms linear;
+}
+
+.show-todos-toggler-arrow {
+  width: 35px;
+  height: 35px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transition: -webkit-transform 500ms linear;
+  transition: -webkit-transform 500ms linear;
+  transition: transform 500ms linear;
+  transition: transform 500ms linear, -webkit-transform 500ms linear;
+}
+
+.todos-toggler-active {
+  -webkit-transform: translate(-25%, -50%);
+          transform: translate(-25%, -50%);
+}
+
+.todos-toggler-active:hover {
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+}
+
+.todos-toggler-active .show-todos-toggler-arrow {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+.todo-form-modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0009;
+  z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
+}
+
+.todo-form-modal-opened {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.todo-form {
+  width: 500px;
+  height: 540px;
+  background-color: #82c3ff;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding: 3em 3em 2em;
+}
+
+.todo-form-projects {
+  margin-bottom: 0.6em;
+}
+
+.todo-form-projects > select {
+  width: 100%;
+}
+
+.todo-form-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  padding: 0.5em 0.7em;
+  margin-bottom: 0.5em;
+}
+
+.todo-form-description {
+  resize: vertical;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+
+.todo-form-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.todo-form-due-date {
+  width: 40%;
+}
+
+.todo-form-priority {
+  font-size: 0.95rem;
+  width: 40%;
+}
+
+.todo-form-priority > select {
+  width: 100%;
+}
+
+.todo-form-submit-btn {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-weight: bold;
+  padding: 1em 1.5em;
+  background-color: #0005;
+  color: #fff;
 }
 
 .flex-col-between {

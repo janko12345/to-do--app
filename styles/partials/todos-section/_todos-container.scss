@@ -6,6 +6,7 @@
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
+  grid-gap: calc(#{$desired-gap} / 1.4) $desired-gap;
   overflow-y: auto;
   &::-webkit-scrollbar-thumb {
     border-radius: 0;

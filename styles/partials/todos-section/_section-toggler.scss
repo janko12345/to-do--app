@@ -1,0 +1,27 @@
+.show-todos-toggler {
+  cursor: pointer;
+  position: absolute;
+  height: 150px;
+  width: 50px;
+  background-color: #0008;
+  @include flexCenter();
+  @include centerByPosition("true");
+  transform: translate(-100%, -50%);
+  transition: transform 500ms linear;
+  &-arrow {
+    width: 35px;
+    height: 35px;
+    transform: rotateY(180deg);
+    transition: transform 500ms linear;
+  }
+}
+
+.todos-toggler-active {
+  transform: translate(-25%, -50%);
+  &:hover {
+    transform: translate(-100%, -50%);
+  }
+  .show-todos-toggler-arrow {
+    transform: rotateY(0deg);
+  }
+}

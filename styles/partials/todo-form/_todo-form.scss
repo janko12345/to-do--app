@@ -1,0 +1,46 @@
+.todo-form {
+  width: 500px;
+  height: 540px;
+  background-color: getColor(todo-bg);
+  border-radius: 30px;
+  @include flex(space-between, $dir: column);
+  padding: 3em 3em 2em;
+  &-projects {
+    margin-bottom: 0.6em;
+    > select {
+      width: 100%;
+    }
+  }
+  &-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 100%;
+    padding: 0.5em 0.7em;
+    margin-bottom: 0.5em;
+  }
+  &-description {
+    resize: vertical;
+    margin-bottom: 0.5em;
+    width: 100%;
+  }
+  &-footer {
+    @include flex(space-between, center);
+  }
+  &-due-date {
+    width: 40%;
+  }
+  &-priority {
+    font-size: 0.95rem;
+    width: 40%;
+    > select {
+      width: 100%;
+    }
+  }
+  &-submit-btn {
+    align-self: flex-end;
+    font-weight: bold;
+    padding: 1em 1.5em;
+    background-color: #0005;
+    color: #fff;
+  }
+}

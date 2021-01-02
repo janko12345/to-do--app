@@ -3,6 +3,10 @@
   top: 10%;
   right: 0%;
   width: 950px;
+  transition: transform 1000ms ease-in-out;
+  &-hidden {
+    transform: translateX(100%);
+  }
 }
 
 .menu-bar {
